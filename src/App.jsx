@@ -1,12 +1,15 @@
 import "./App.css";
-import { Sidebar } from "./components/sidebar";
+import { Content } from "./components/Content";
+import { Header } from "./components/Header";
+import { Nav } from "./components/Nav";
 
 function App() {
   return (
-    <>
-      <h1 class="text-3xl font-bold underline">Hello world!</h1>
-      <Sidebar />
-    </>
+    <div className="min-h-screen grid grid-rows-[auto_1fr] grid-cols-[400px_1fr]">
+      <Header />
+      <Nav />
+      <Content />
+    </div>
   );
 }
 
