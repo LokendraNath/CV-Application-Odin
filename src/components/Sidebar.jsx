@@ -7,13 +7,13 @@ export function Sidebar({ setUserData, userData }) {
     alert("Submit");
   }
   return (
-    <aside className="bg-blue-300 border-r-2 overflow-y-scroll px-3 mt-12 h-[650px] py-10">
+    <aside className="bg-blue-300 overflow-y-scroll px-3 mt-12 h-[650px] py-10">
       <GeneralInfo setUser={setUserData} />
       <Education setUser={setUserData} userData={userData} />
       <Experience setUser={setUserData} userData={userData} />
       <button
         onClick={handleSubmit}
-        className="w-full bg-white py-2 text-3xl rounded-full"
+        className="w-full bg-white py-2 text-2xl rounded-full tracking-widest font-bold"
       >
         Submit
       </button>

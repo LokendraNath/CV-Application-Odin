@@ -29,7 +29,7 @@ const App = () => {
   console.log(personData.education);
 
   return (
-    <div className="relative bg-white min-h-screen grid grid-rows-[auto_1fr] grid-cols-[400px_1fr]">
+    <div className="relative bg-white min-h-screen grid grid-rows-[auto_1fr] grid-cols-[450px_1fr]">
       <Header />
       <Sidebar setUserData={setPersonData} userData={personData} />
       <Content userData={personData} />

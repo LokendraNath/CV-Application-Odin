@@ -17,19 +17,22 @@ export default function GeneralInfo({ setUser }) {
 
   return (
     <div className="mt-2">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl mb-3">General Info</h1>
+      <div className="flex items-center justify-between mb-5">
+        <h1 className="text-2xl font-bold tracking-wider">General Info</h1>
         {isOpen ? (
-          <i onClick={handleOpen} className="fa-solid fa-xmark"></i>
+          <i onClick={handleOpen} className="fa-solid fa-xmark text-2xl"></i>
         ) : (
-          <i onClick={handleOpen} className="fa-solid fa-pen-to-square"></i>
+          <i
+            onClick={handleOpen}
+            className="fa-solid fa-pen-to-square text-2xl"
+          ></i>
         )}
       </div>
       {isOpen && (
         <div className="flex flex-col gap-2 w-full pb-10">
           <label
             htmlFor="name"
-            className="text-sm flex items-center justify-between px-2"
+            className="text-lg flex items-center justify-between px-2"
           >
             Your Name -
             <input
@@ -43,7 +46,7 @@ export default function GeneralInfo({ setUser }) {
           </label>
           <label
             htmlFor="email"
-            className="text-sm flex items-center justify-between px-2"
+            className="text-lg flex items-center justify-between px-2"
           >
             {" "}
             Email
@@ -58,7 +61,7 @@ export default function GeneralInfo({ setUser }) {
           </label>
           <label
             htmlFor="tel"
-            className="text-sm flex items-center justify-between px-2"
+            className="text-lg flex items-center justify-between px-2"
           >
             {" "}
             Phone Number
@@ -73,7 +76,7 @@ export default function GeneralInfo({ setUser }) {
           </label>
           <label
             htmlFor="objective"
-            className="text-sm flex justify-between px-2 flex-col"
+            className="text-lg flex justify-between px-2 flex-col"
           >
             {" "}
             Objective:

@@ -41,11 +41,11 @@ export default function Education({ setUser, userData }) {
   return (
     <div className="my-4">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl mb-3">Education</h1>
+        <h1 className="text-2xl font-bold tracking-wider">Education</h1>
         {isOpen ? (
-          <i onClick={handleOpen} className="fa-solid fa-xmark"></i>
+          <i onClick={handleOpen} className="fa-solid fa-xmark text-2xl"></i>
         ) : (
-          <i onClick={handleOpen} className="fa-solid fa-pen-to-square"></i>
+          <i onClick={handleOpen} className="fa-solid fa-pen-to-square text-2xl"></i>
         )}
       </div>
       {isOpen && (
