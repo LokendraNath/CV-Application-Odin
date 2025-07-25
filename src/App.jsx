@@ -1,0 +1,13 @@
+import "./App.css";
+import { Sidebar } from "./components/sidebar";
+
+function App() {
+  return (
+    <>
+      <h1 class="text-3xl font-bold underline">Hello world!</h1>
+      <Sidebar />
+    </>
+  );
+}
+
+export default App;
