@@ -1,12 +1,46 @@
-# React + Vite
+# 📄 Resume Builder - Modern CV Creator  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Application Preview](./public/images/preview.png)  
+*Clean, professional interface with real-time preview*
 
-Currently, two official plugins are available:
+## 🌟 Live Demo  
+Experience it yourself: [https://cv-application-lokendra.vercel.app](https://cv-application-lokendra.vercel.app)  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Overview  
+A sleek, interactive resume builder that transforms your professional details into a polished CV instantly. Designed with job seekers in mind, this tool combines React's dynamic capabilities with Tailwind CSS's responsive design to deliver a seamless resume creation experience.
 
-## Expanding the ESLint configuration
+## 🔥 Key Features  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Feature | Description |  
+|---------|-------------|  
+| **Real-time Editing** | Instant preview as you type with React state management |  
+| **Multi-section CV** | Manage education, work experience, and skills sections |  
+| **CRUD Operations** | Add, edit, or remove any section with intuitive controls |  
+| **Mobile-friendly** | Fully responsive design works on all devices |  
+| **ATS Optimized** | Clean templates that pass applicant tracking systems |  
+
+## 🛠️ Tech Stack  
+
+### Frontend
+- **Framework**: React 18  
+- **Styling**: Tailwind CSS  
+- **Icons**: Font Awesome  
+- **State Management**: React Hooks  
+
+### Deployment
+- **Hosting**: Vercel  
+- **CI/CD**: GitHub Actions  
+
+## 🚀 Getting Started  
+
+1. **Access the App**:  
+   Visit [live demo](https://cv-application-lokendra.vercel.app)  
+
+2. **Build Your Resume**:  
+   - Fill in personal details  
+   - Add education/work history  
+   - Manage skills section  
+
+3. **Customize**:  
+   - Edit/delete entries anytime  
+   - See changes instantly   
