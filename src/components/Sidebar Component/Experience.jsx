@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Experience({ setUser, userData }) {
+export default function Experience({ setUser, userData, deleteExe }) {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     company: "",
@@ -13,7 +13,7 @@ export default function Experience({ setUser, userData }) {
     setIsOpen(!isOpen);
   }
   // Onchange
-  function handleFormData(e) {
+  function handleInputChange(e) {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -22,10 +22,9 @@ export default function Experience({ setUser, userData }) {
   }
   //addbutton
   function handleAddButton() {
-
     setUser((prev) => ({
       ...prev,
-      workExperience: [formData,...prev.workExperience ],
+      workExperience: [formData, ...(prev.workExperience || [])],
     }));
 
     setFormData({
@@ -37,13 +36,18 @@ export default function Experience({ setUser, userData }) {
   }
 
   return (
-    <div className="mb-5">
-      <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold tracking-wider">Working Experience</h1>
+    <div className="mb-10">
+      <div className="flex items-center justify-between mb-5">
+        <h1 className="text-2xl font-bold tracking-wider">
+          Working Experience
+        </h1>
         {isOpen ? (
           <i onClick={handleOpen} className="fa-solid fa-xmark text-2xl"></i>
         ) : (
-          <i onClick={handleOpen} className="fa-solid fa-pen-to-square text-2xl"></i>
+          <i
+            onClick={handleOpen}
+            className="fa-solid fa-pen-to-square text-2xl"
+          ></i>
         )}
       </div>
       {isOpen && (
@@ -59,8 +63,8 @@ export default function Experience({ setUser, userData }) {
               value={formData.company}
               id="company"
               className="bg-white py-2 ml-5 rounded-full text-sm pl-3"
-              placeholder="Enter Company Name"
-              onChange={handleFormData}
+              placeholder="Eg. Microsoft"
+              onChange={handleInputChange}
             />
           </label>
           <label
@@ -74,9 +78,9 @@ export default function Experience({ setUser, userData }) {
               type="text"
               value={formData.compPosition}
               id="compPosition"
-              onChange={handleFormData}
+              onChange={handleInputChange}
               className="bg-white py-2 ml-5 rounded-full text-sm pl-3"
-              placeholder="Enter Position"
+              placeholder="Eg. Full Stack Developer"
             />
           </label>
           <label
@@ -92,19 +96,19 @@ export default function Experience({ setUser, userData }) {
               value={formData.start}
               max="2030"
               id="start"
-              onChange={handleFormData}
+              onChange={handleInputChange}
               className="bg-white py-2 ml-5 rounded-full text-sm pl-3 px-3"
             />
           </label>
           <label
             htmlFor="start"
-            className="text-sm flex items-center justify-between px-3"
+            className="text-sm flex items-center justify-between px-3 mb-5"
           >
             {" "}
             End Date
             <input
               name="end"
-              onChange={handleFormData}
+              onChange={handleInputChange}
               type="number"
               min="1960"
               value={formData.end}
@@ -119,15 +123,23 @@ export default function Experience({ setUser, userData }) {
           >
             Add
           </button>
-          {userData.workExperience.length > 0 && (
-            <ul className="text-center mt-4">
-              {userData.workExperience.map((e) => (
-                <li className="text-sm bg-white mx-10 rounded-full">
-                  - {e.start} to {e.end} as a {e.compPosition} in {e.company}
+          <ul className="mt-5 flex flex-col items-center ">
+            {userData.workExperience &&
+              userData.workExperience.map((e, i) => (
+                <li
+                  key={i}
+                  className="font-semibold flex items-center transition-all duration-200 hover:bg-gray-500 px-3 rounded-lg"
+                >
+                  <span className="text-sm">
+                    {e.start} to {e.end} As a {e.compPosition} in {e.company}
+                  </span>
+                  <i
+                    className="fa-solid fa-circle-xmark text-red-600 ml-2 cursor-pointer"
+                    onClick={() => deleteExe(i)}
+                  ></i>
                 </li>
               ))}
-            </ul>
-          )}
+          </ul>
         </div>
       )}
     </div>

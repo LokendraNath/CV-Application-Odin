@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Education({ setUser, userData }) {
+export default function Education({ setUser, userData, deleteEdu }) {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setformData] = useState({
     school: "",
@@ -25,7 +25,7 @@ export default function Education({ setUser, userData }) {
 
     setUser((prev) => ({
       ...prev,
-      education: [formData,...prev.education],
+      education: [formData, ...prev.education],
     }));
 
     setformData({
@@ -39,13 +39,16 @@ export default function Education({ setUser, userData }) {
     setIsOpen(!isOpen);
   }
   return (
-    <div className="my-4">
-      <div className="flex items-center justify-between">
+    <div>
+      <div className="flex items-center justify-between mb-3">
         <h1 className="text-2xl font-bold tracking-wider">Education</h1>
         {isOpen ? (
           <i onClick={handleOpen} className="fa-solid fa-xmark text-2xl"></i>
         ) : (
-          <i onClick={handleOpen} className="fa-solid fa-pen-to-square text-2xl"></i>
+          <i
+            onClick={handleOpen}
+            className="fa-solid fa-pen-to-square text-2xl"
+          ></i>
         )}
       </div>
       {isOpen && (
@@ -83,16 +86,18 @@ export default function Education({ setUser, userData }) {
           </label>
           <label
             htmlFor="schoolDate"
-            className="text-sm flex items-center justify-between px-3"
+            className="text-sm flex items-center justify-between px-3 mb-5"
           >
             {" "}
             Enter Date
             <input
-              type="date"
+              type="number"
               id="schoolDate"
               value={formData.date}
               onChange={handleInputChange}
               name="date"
+              min="1980"
+              max="2020"
               className="bg-white py-2 ml-5 rounded-full text-sm pl-3 px-5 w-[60%]"
               placeholder="Enter Date"
             />
@@ -103,15 +108,23 @@ export default function Education({ setUser, userData }) {
           >
             Add
           </button>
-          {userData.education.length > 0 && (
-            <ul className="text-center mt-4">
-              {userData.education.map((e) => (
-                <li className="text-sm bg-white mx-10 rounded-full mb-2 flex justify-between px-3">
-                  <span>- {e.date} {e.title} in {e.school}</span> <button>X</button>
+          <ul className="mt-5 flex flex-col items-center ">
+            {userData.education.length > 0 &&
+              userData.education.map((e, i) => (
+                <li
+                  key={i}
+                  className="font-semibold flex items-center transition-all duration-200 hover:bg-gray-500 px-3 rounded-lg"
+                >
+                  <span>
+                    {e.date} {e.title} in {e.school}{" "}
+                  </span>
+                  <i
+                    className="fa-solid fa-circle-xmark text-red-600 ml-2 cursor-pointer"
+                    onClick={() => deleteEdu(i)}
+                  ></i>
                 </li>
               ))}
-            </ul>
-          )}
+          </ul>
         </div>
       )}
     </div>
